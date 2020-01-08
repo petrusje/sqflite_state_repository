@@ -28,6 +28,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   state_repository: ^1.0.0
+  sqflite_state_repository: ^1.0.0
   sqflite: any
   path_provider: any 
   intl: ^0.15.7 

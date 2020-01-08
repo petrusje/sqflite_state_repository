@@ -1,6 +1,6 @@
 # sqflite_state_repository
 
- This class encapsulates Sqflite Table defined by RowModel, it encapsulats all the CRUD operations
+ This package encapsulates Sqflite Table defined by RowModel, it encapsulats all the CRUD operations
 
 ## Getting Started
 
