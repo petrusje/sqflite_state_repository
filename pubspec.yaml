@@ -1,0 +1,25 @@
+name: sqflite_state_repository
+description: A specialization of state_repository that creates a sqflite repository
+ that encapsulates the crud operations of a table.
+version: 1.0.0
+homepage: https://github.com/petrusje/sqflite_state_repository
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  state_repository: ^1.0.0
+  sqflite: ^1.2.0
+  path: ^1.6.4 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  
+  
