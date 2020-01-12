@@ -1,6 +1,5 @@
 import 'dart:core';
 import 'package:flutter/foundation.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_state_repository/src/Model.dart';
 import 'package:sqflite_state_repository/src/db_helper.dart';
 import 'package:sqflite_state_repository/src/tabledefs.dart';
