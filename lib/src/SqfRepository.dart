@@ -6,7 +6,6 @@ import 'package:sqflite_state_repository/src/db_helper.dart';
 import 'package:sqflite_state_repository/src/tabledefs.dart';
 import 'package:state_repository/state_repository.dart';
 
-
 // This class encapsulates Sqflite Table defined by RowModel, it encapsulats all the CRUD operations
 //```dart
 // class NoteRepository extends SqfRepository<Note> {
@@ -60,7 +59,14 @@ abstract class SqfRepository<T extends RowModel> extends Repository {
     _rows = dataRows;
   }
 
-  T current;
+  T _current;
+
+  T get current => _current;
+
+  set current(T current) {
+    _current = current;
+    notifyListeners();
+  }
 
   @mustCallSuper
   SqfRepository([this.useFilter = false]) {
@@ -99,7 +105,10 @@ abstract class SqfRepository<T extends RowModel> extends Repository {
     await dbManager.openDB();
     int result =
         await dbManager.getDB().insert(table.tableName, newRow.toMap());
-    if (result == 1) notifyListeners();
+    if (result == 1) {
+      rows.add(newRow);
+      notifyListeners();
+    }
     return result;
   }
 
@@ -108,7 +117,11 @@ abstract class SqfRepository<T extends RowModel> extends Repository {
     if (rows.length == 0) return 0;
     int result = await dbManager.getDB().delete(table.tableName,
         where: "${table.primaryKeyName}= ?", whereArgs: [key]);
-    if (result == 1) notifyListeners();
+    if (result == 1) {
+      for (T row in _rows)
+        if (row[table.primaryKeyName] == key) rows.remove(row);
+      notifyListeners();
+    }
     return result;
   }
 
