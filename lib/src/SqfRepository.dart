@@ -101,18 +101,15 @@ abstract class SqfRepository<T extends RowModel> extends Repository {
 
   //Crud Operations
 
-  Future<int> insert(RowModel newRow) async {
+ Future<void> insert(RowModel newRow) async {
     await dbManager.openDB();
-    int result =
+    newRow[table.primaryKeyName] =
         await dbManager.getDB().insert(table.tableName, newRow.toMap());
-    if (result == 1) {
-      rows.add(newRow);
-      notifyListeners();
-    }
-    return result;
+    rows.add(newRow);
+    notifyListeners();
   }
 
-  Future<int> deleteByKey(dynamic key) async {
+  Future<void> deleteByKey(dynamic key) async {
     await dbManager.openDB();
     if (rows.length == 0) return 0;
     int result = await dbManager.getDB().delete(table.tableName,
@@ -122,15 +119,13 @@ abstract class SqfRepository<T extends RowModel> extends Repository {
         if (row[table.primaryKeyName] == key) rows.remove(row);
       notifyListeners();
     }
-    return result;
   }
 
-  Future<int> delete(RowModel rowToDelete) async {
-    return await deleteByKey(rowToDelete.key());
+  Future<void> delete(RowModel rowToDelete) async {
+     await deleteByKey(rowToDelete.key());
   }
 
   Future<int> update(RowModel row) async {
-    //record.saveProps();
     await dbManager.openDB();
     int result = await dbManager.getDB().update(table.tableName, row.toMap(),
         where: "${table.primaryKeyName} = ?", whereArgs: [row.key]);
