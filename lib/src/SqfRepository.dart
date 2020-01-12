@@ -64,7 +64,6 @@ abstract class SqfRepository<T extends RowModel> extends Repository {
 
   set current(T current) {
     _current = current;
-    notifyListeners();
   }
 
   @mustCallSuper

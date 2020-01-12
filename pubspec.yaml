@@ -1,7 +1,7 @@
 name: sqflite_state_repository
 description: A specialization of state_repository that creates a sqflite repository
  that encapsulates the crud operations of a table.
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/petrusje/sqflite_state_repository
 
 environment:
