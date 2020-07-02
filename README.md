@@ -9,7 +9,17 @@ First we define the table Structure using Tabledef and Fieldefs
 // It defines the table and fields that que repository creates
 // and manage CRUD operations
 // /
-// `dart // table = TableDef(tableName: 'notes', fields: [ // FieldDef('id', DbType.integer, // primaryKey: true, // primaryKeyType: PrimaryKeyType.integer_auto_incremental), // FieldDef('title', DbType.text), // FieldDef('description', DbType.text), // FieldDef('priority', DbType.integer), // FieldDef('date', DbType.datetime) //`
+//
+
+```dart
+ table = TableDef(tableName: 'notes', 
+ fields: [  
+   FieldDef('id', DbType.integer,  primaryKey: true,  primaryKeyType: PrimaryKeyType.integer_auto_incremental),  
+   FieldDef('title', DbType.text),  
+   FieldDef('description', DbType.text),  
+   FieldDef('priority', DbType.integer),  
+   FieldDef('date', DbType.datetime)
+```
 
 After we define the RowModel
 
