@@ -12,13 +12,14 @@ First we define the table Structure using Tabledef and Fieldefs
 //
 
 ```dart
- table = TableDef(tableName: 'notes', 
- fields: [  
-   FieldDef('id', DbType.integer,  primaryKey: true,  primaryKeyType: PrimaryKeyType.integer_auto_incremental),  
-   FieldDef('title', DbType.text),  
-   FieldDef('description', DbType.text),  
-   FieldDef('priority', DbType.integer),  
-   FieldDef('date', DbType.datetime)
+ table = TableDef(tableName: 'notes',
+ fields: [
+   FieldDef('id', DbType.integer,  primaryKey: true,  primaryKeyType: PrimaryKeyType.integer_auto_incremental),
+   FieldDef('title', DbType.text),
+   FieldDef('description', DbType.text),
+   FieldDef('priority', DbType.integer),
+   FieldDef('date', DbType.datetime)]
+ );
 ```
 
 After we define the RowModel
