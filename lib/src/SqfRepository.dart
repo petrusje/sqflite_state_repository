@@ -99,7 +99,7 @@ abstract class SqfRepository<T extends RowModel> extends Repository {
 
   //Crud Operations
 
- Future<void> insert(RowModel newRow) async {
+  Future<void> insert(RowModel newRow) async {
     await dbManager.openDB();
     newRow[table.primaryKeyName] =
         await dbManager.getDB().insert(table.tableName, newRow.toMap());
@@ -120,7 +120,7 @@ abstract class SqfRepository<T extends RowModel> extends Repository {
   }
 
   Future<void> delete(RowModel rowToDelete) async {
-     await deleteByKey(rowToDelete.key());
+    await deleteByKey(rowToDelete.key());
   }
 
   Future<int> update(RowModel row) async {
